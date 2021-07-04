@@ -3,6 +3,9 @@ package routers
 import (
 	"github.com/gin-gonic/gin"
 	"go_tour/blog_service/internal/routers/api/v1"
+	_ "go_tour/blog_service/docs"
+	ginSwagger "github.com/swaggo/gin-swagger"
+	"github.com/swaggo/gin-swagger/swaggerFiles"
 )
 
 func NewRouter() *gin.Engine{
@@ -10,6 +13,7 @@ func NewRouter() *gin.Engine{
 	r.Use(gin.Logger(), gin.Recovery())
 	article := v1.NewArticle()
 	tag := v1.NewTag()
+	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
 	apiv1 := r.Group("/api/v1")
 	{

@@ -26,6 +26,10 @@ func init() {
 	}
 }
 
+// @title 博客系统
+// @version 1.0
+// @description Go 语言编程之旅：一起用 Go 做项目
+// @termsOfService https://github.com/xudarling/go_tour_http_blog
 func main() {
 	router := routers.NewRouter()
 	s := &http.Server{
